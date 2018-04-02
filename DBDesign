@@ -1,0 +1,50 @@
+# Modify the code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+
+Parent
+-
+parentId PK long
+name string
+phone string
+displayPicture NULL string
+
+
+
+Chlid
+-
+childId PK long
+name string
+parentId long FK >- Parent.parentId
+displayPicture NULL string
+
+
+Activity
+-
+ActivityId PK long 
+name string
+description string
+diplayPicture string
+category string FK >- Category.category
+
+
+Category 
+-
+category string
+description string
+
+
+ActivityCircle
+-
+activityCircleId PK long
+name string
+displayPicture string
+
+
+Child-Activity-Circle
+-
+activityCircleId long FK >- ActivityCircle.activityCircleId
+childId  long FK >- Chlid.childId
+
+
+
